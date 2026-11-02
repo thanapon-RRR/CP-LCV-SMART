@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Prompt", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Prompt", sans-serif;
+  --color-brand-purple: #5B21B6;
+  --color-brand-purple-dark: #4C1D95;
+  --color-brand-purple-light: #F3E8FF;
+  --color-brand-blue: #0369A1;
+  --color-brand-blue-dark: #075985;
+  --color-brand-blue-light: #E0F2FE;
+}
+
+html {
+  font-size: 17.5px; /* Enhanced default font size */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html.font-size-normal {
+  font-size: 15.5px;
+}
+
+html.font-size-large {
+  font-size: 18px;
+}
+
+html.font-size-xlarge {
+  font-size: 20.5px;
+}
+
+body {
+  background-color: #F8FAFC;
+  color: #1E293B;
+  font-family: var(--font-sans);
+  line-height: 1.55;
+  letter-spacing: -0.01em;
+}
+
+/* Ensure Thai vowel marks are visible and legible */
+p, span, h1, h2, h3, h4, h5, h6, input, select, textarea, button, table {
+  text-rendering: optimizeLegibility;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-16px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes toastProgress {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+.animate-slideIn {
+  animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-toastProgress {
+  animation: toastProgress 6.5s linear forwards;
+}
+
+/* ==========================================================================
+   OFFICIAL A4 PRINT & PDF STYLESHEET
+   Format for physical document printing and official Thai bureaucratic reports
+   ========================================================================== */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm 15mm 15mm 15mm;
+  }
+
+  html, body {
+    background: #ffffff !important;
+    color: #111827 !important;
+    font-size: 13px !important;
+    line-height: 1.45 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide regular UI elements when printing */
+  nav, header, footer, .print-hidden, .no-print,
+  #bento-attendance, .bento-nav-grid, button {
+    display: none !important;
+  }
+
+  /* If the official PDF report container exists, ensure it occupies full page */
+  #official-pdf-report-document {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: white !important;
+  }
+
+  /* Table styling for official papers */
+  .official-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin-top: 8px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .official-table th,
+  .official-table td {
+    border: 1px solid #1f2937 !important;
+    padding: 4px 6px !important;
+    font-size: 11.5px !important;
+  }
+
+  .official-table th {
+    background-color: #f3f4f6 !important;
+    color: #111827 !important;
+    font-weight: 700 !important;
+  }
+
+  /* Avoid page breaks inside crucial blocks */
+  .print-avoid-break,
+  .signature-block,
+  tr {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* Allow page breaks between major sections if multi-page */
+  .print-page-break {
+    page-break-after: always !important;
+    break-after: page !important;
+  }
+}
+
+

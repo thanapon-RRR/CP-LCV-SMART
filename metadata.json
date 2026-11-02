@@ -1,0 +1,6 @@
+{
+  "name": "CP-LCV SMART",
+  "description": "ระบบดิจิทัลเพื่อการบริหารจัดการภารกิจบุคลากรแบบครบวงจร โรงเรียนชุมพวงศึกษา",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
